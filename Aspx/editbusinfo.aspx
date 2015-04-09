@@ -35,7 +35,7 @@
                 <asp:TextBox ID="txtStartTime" runat="server" placeholder="06:00" />&nbsp 到&nbsp 
                 <asp:TextBox ID="txtEndTime" runat="server" placeholder="21:00"/>
                 <br />
-            <asp:Button runat="server" ID="btnEdit" Text="确定修改" OnClick="btnEdit_Click" />
+                <asp:Button runat="server" ID="btnEdit" Text="确定修改" OnClick="btnEdit_Click" />
             </td>
         </tr>
     </table>
