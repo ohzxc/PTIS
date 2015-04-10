@@ -8,5 +8,4 @@
     </div>
     <div><a href="Aspx/user">用户入口</a></div>
     <div><a href="Aspx/admin">管理员入口</a></div>
-    
 </asp:Content>
