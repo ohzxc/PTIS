@@ -32,11 +32,18 @@ public partial class Aspx_editadmin : System.Web.UI.Page
     }
     protected void btnEdit_Click(object sender, EventArgs e)
     {
-        SqlConnection con = Database.createCon();
-        con.Open();
-        SqlCommand cmd = new SqlCommand("UPDATE Admin SET qmadmin_user=N'" + this.txtUsername.Text + "',qmadmin_name=N'" + this.txtNickname.Text + "',qmadmin_pass=N'" + this.txtPSWD.Text + "' WHERE qmadmin_user=N'" + Request.QueryString["user"].ToString() + "'", con);
-        cmd.ExecuteNonQuery();
-        con.Close();
-        htmlDataBind(Request.QueryString["user"].ToString());
+        if (this.txtNickname.Text == "" || this.txtUsername.Text == "" || this.txtPSWD.Text == "")
+        {
+            Response.Write("<script>alert('请检查信息完整！')</script>");
+        }
+        else
+        {
+            SqlConnection con = Database.createCon();
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE Admin SET qmadmin_user=N'" + this.txtUsername.Text + "',qmadmin_name=N'" + this.txtNickname.Text + "',qmadmin_pass=N'" + this.txtPSWD.Text + "' WHERE qmadmin_user=N'" + Request.QueryString["user"].ToString() + "'", con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            htmlDataBind(Request.QueryString["user"].ToString());
+        }
     }
-}
+}   
