@@ -39,7 +39,7 @@ public partial class Aspx_adminlist : System.Web.UI.Page
             }
             SqlConnection con = Database.createCon();
             con.Open();
-            SqlCommand cmd = new SqlCommand("DELETE FROM Admin WHERE qmadmin_user=N'"+((HyperLink)e.Item.Cells[1].Controls[0]).Text+"'", con);
+            SqlCommand cmd = new SqlCommand("DELETE FROM Admin WHERE qmadmin_user=N'"+e.Item.Cells[1].Text+"'", con);
             cmd.ExecuteNonQuery();
             this.dgDataBind();
         }
@@ -51,6 +51,6 @@ public partial class Aspx_adminlist : System.Web.UI.Page
     }
     protected void dgAdmin_EditCommand(object source, DataGridCommandEventArgs e)
     {
-        Response.Redirect("editadmin.aspx?user=" + ((HyperLink)e.Item.Cells[1].Controls[0]).Text);
+        Response.Redirect("editadmin.aspx?user=" + e.Item.Cells[1].Text);
     }
 }
