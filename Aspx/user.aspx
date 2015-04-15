@@ -2,12 +2,24 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <script src="../Scripts/user.js"></script>
+    <script src="../Scripts/jquery.autocomplete.js" ></script>
+    <script src="../Scripts/jquery.bgiframe.min.js"></script>
+    <script src="../Scripts/jquery.js"></script>
+    <script src="../Scripts/thickbox-compressed.js"></script>
+    <link rel="stylesheet" href="../Style/jquery.autocomplete.css" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var data = ["河北省", "河南省", "山东", "北京", "天津"];
+            $("#textq").autocomplete("data");
+        })
+    </script>
     <div>
         
         <div style="display:inline" onmouseover="displayhc()">换乘查询</div>
         <div style="display:inline" onmouseover="displayxl()">线路查询</div>
         <div style="display:inline" onmouseover="displayzd()">站点查询</div>
         <div id="hcframe" style="display:block" >
+            <input id="textq" type="text" />
             <input id="textqd" type="text" runat="server" placeholder="请输入起点"/>
             <input type="button" value="交换(待实现)" runat="server" onclick="btnExchange_Click" />
             <input id="textzd" type="text" runat="server" placeholder="请输入终点"/>
