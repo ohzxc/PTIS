@@ -2,22 +2,10 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <script src="../Scripts/user.js"></script>
-    <script src="../Scripts/jquery.autocomplete.js" ></script>
-    <script src="../Scripts/jquery.bgiframe.min.js"></script>
-    <script src="../Scripts/jquery.js"></script>
-    <script src="../Scripts/thickbox-compressed.js"></script>
-    <link rel="stylesheet" href="../Style/jquery.autocomplete.css" />
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var data = ["河北省", "河南省", "山东", "北京", "天津"];
-            $("#textq").autocomplete("data");
-        })
-    </script>
-    <div>
-        
-        <div style="display:inline" onmouseover="displayhc()">换乘查询</div>
-        <div style="display:inline" onmouseover="displayxl()">线路查询</div>
-        <div style="display:inline" onmouseover="displayzd()">站点查询</div>
+    <div>   
+        <div style="display:inline" onclick="displayhc()">换乘查询</div>
+        <div style="display:inline" onclick="displayxl()">线路查询</div>
+        <div style="display:inline" onclick="displayzd()">站点查询</div>
         <div id="hcframe" style="display:block" >
             <input id="textq" type="text" />
             <input id="textqd" type="text" runat="server" placeholder="请输入起点"/>
@@ -36,9 +24,7 @@
             <br />
             <asp:button ID="Button2" runat="server" Text="查询2" OnClick="btnFind_Click2" />
         </div>
-        <iframe id="frmResult" runat="server" style="height: 500px; width: 500px" >
-
-        </iframe>
+        <iframe id="frmResult" runat="server" style="height: 300px; width: 500px; border: none" ></iframe>
 <!--   <asp:UpdatePanel runat="server">
             <ContentTemplate>
             <asp:button ID="btnTest" runat="server" Text="查询" OnClick="btnFind_Click" AutoPostBack="false" />
