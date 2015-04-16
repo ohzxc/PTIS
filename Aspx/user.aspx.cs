@@ -78,7 +78,7 @@ public partial class Aspx_user : System.Web.UI.Page
     }
     protected void btnFind_Click2(object sender, EventArgs e)
     {
-        string ZDName = this.StationName.Value;
+        string ZDName = this.StationName.Text;
         SqlConnection con = Database.createCon();
         con.Open();
         SqlCommand cmd = new SqlCommand("SELECT count(*) FROM Station WHERE qmstation_name=N'" + ZDName + "'", con);
