@@ -12,20 +12,9 @@ public partial class Aspx_user : System.Web.UI.Page
     {
        
     }
-    //交换起点和终点的值
     protected void btnFind_Click(object sender, EventArgs e)
     {
-        Response.Write("<script>alert('查询成功！')</script>");
-        /*if (this.xlframe.Style.Value == "display:block")
-        {
-            Response.Write("<script>alert('运行成功xl！')</script>");
-        }
-        else if (this.zdframe.Style.Value == "display:block")
-        {
-            Response.Write("<script>alert('运行成功！zd')</script>");
-        }
-        else Response.Write("<script>alert('运行成功！')</script>");*/
-        string startStation = this.textqd.Text;
+       string startStation = this.textqd.Text;
         string endStation = this.textzd.Text;
         SqlConnection con = Database.createCon();
         con.Open();
@@ -67,9 +56,9 @@ public partial class Aspx_user : System.Web.UI.Page
                 this.frmResult.Src = "showbus.aspx?busName=" + busName;
             }
         }
-        con.Close();
         sdr.Close();
-
+        con.Close();
+        Response.Write("<script>displayxl()</script>");
     }
     protected void btnFind_Click2(object sender, EventArgs e)
     {
