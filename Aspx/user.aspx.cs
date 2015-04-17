@@ -12,12 +12,7 @@ public partial class Aspx_user : System.Web.UI.Page
     {
        
     }
-
-    protected void btnExchange_Click(object sender, EventArgs e)
-    {
-
-    }
-
+    //交换起点和终点的值
     protected void btnFind_Click(object sender, EventArgs e)
     {
         Response.Write("<script>alert('查询成功！')</script>");
