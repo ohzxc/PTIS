@@ -3,9 +3,8 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1>公交查询系统</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
+        <h1>武汉公共交通查询</h1>
+        <p class="lead">提供武汉市公共交通基本查询和管理功能。</p>
     </div>
-    <div><a href="Aspx/user">用户入口</a></div>
-    <div><a href="Aspx/admin">管理员入口</a></div>
+    <div style=""><a href="Aspx/user">查询入口</a> <a href="Aspx/admin">管理入口</a></div>
 </asp:Content>
