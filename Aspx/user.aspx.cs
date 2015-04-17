@@ -30,8 +30,8 @@ public partial class Aspx_user : System.Web.UI.Page
             Response.Write("<script>alert('运行成功！zd')</script>");
         }
         else Response.Write("<script>alert('运行成功！')</script>");*/
-        string startStation = this.textqd.Value;
-        string endStation = this.textzd.Value;
+        string startStation = this.textqd.Text;
+        string endStation = this.textzd.Text;
         SqlConnection con = Database.createCon();
         con.Open();
         SqlCommand cmd = new SqlCommand("SELECT qmroute_address FROM Route WHERE qmroute_address LIKE N'" + startStation + "-" + endStation + "-%' OR qmroute_address LIKE N'" + startStation + "-%-" + endStation + "-%'OR qmroute_address LIKE N'" + startStation + "-%-" + endStation + "'OR qmroute_address LIKE N'%-" + startStation + "-" + endStation + "-%'OR qmroute_address LIKE N'%-" + startStation + "-%-" + endStation + "-%'OR qmroute_address LIKE N'%-" + startStation + "-%-" + endStation + "'OR qmroute_address LIKE N'%-" + startStation + "-" + endStation + "'", con);
@@ -53,7 +53,7 @@ public partial class Aspx_user : System.Web.UI.Page
     }
     protected void btnFind_Click1(object sender, EventArgs e)
     {
-        string busName = this.txtLineName.Value;
+        string busName = this.txtLineName.Text;
         SqlConnection con = Database.createCon();
         con.Open();
         SqlCommand cmd = new SqlCommand("SELECT qmroute_address FROM Route WHERE qmroute_name=N'" + busName + "'", con);
