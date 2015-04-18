@@ -1,4 +1,4 @@
-﻿<%@ Page Title="guanli" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="admin.aspx.cs" Inherits="Aspx_admin" %>
+﻿<%@ Page Title="登陆" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="admin.aspx.cs" Inherits="Aspx_admin" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <label>用户名</label>

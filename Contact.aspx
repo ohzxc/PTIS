@@ -11,6 +11,6 @@
     </address>
 
     <address>
-        <strong>支持/商业联系:</strong>   <a href="mailto:zhouxc@qq.com">zhouxc@qq.com</a><br />
+        <strong>联系:</strong>   <a href="mailto:zhouxc@qq.com">zhouxc@qq.com</a><br />
     </address>
 </asp:Content>
