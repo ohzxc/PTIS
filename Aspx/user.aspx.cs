@@ -34,6 +34,7 @@ public partial class Aspx_user : System.Web.UI.Page
         }
         con.Close();
         sdr.Close();
+        //Response.Cookies["iframe"].Value = "hccx";
     }
     protected void btnFind_Click1(object sender, EventArgs e)
     {
@@ -58,7 +59,7 @@ public partial class Aspx_user : System.Web.UI.Page
         }
         sdr.Close();
         con.Close();
-        Response.Write("<script>displayxl()</script>");
+        //Response.Cookies["iframe"].Value = "xlcx";
     }
     protected void btnFind_Click2(object sender, EventArgs e)
     {
@@ -84,7 +85,6 @@ public partial class Aspx_user : System.Web.UI.Page
                 Response.Write("<script>alert('无结果！')<script>");
             }
         }
-
-
+        //Response.Cookies["iframe"].Value = "zdcx";
     }
 }

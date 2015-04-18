@@ -5,6 +5,28 @@
     <script src="../Scripts/user.js"></script>
     <!--交换起点与终点的值-->
     <script>
+        $(document).ready(function () {
+            var strCookie = document.cookie;
+            var arrCookie = strCookie.split(",");
+            var iframe;
+            for (var i = 0; i < arrCookie.length; i++) {
+                var arr = arrCookie[i].split("=");
+                if (arr[0] = "iframe") {
+                    switch (arr[1]) {
+                        case "hccx":
+                            displayhc();
+                            break;
+                        case "xlcx":
+                            displayxl();
+                            break;
+                        case "zdcx":
+                            displayzd();
+                            break;
+                        default: break;
+                    }
+                }
+            }
+        })
         function exchange() {
             var temp = document.getElementById("<%=textqd.ClientID%>").value;
             document.getElementById("<%=textqd.ClientID%>").value = document.getElementById("<%=textzd.ClientID%>").value;
