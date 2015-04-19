@@ -46,5 +46,6 @@ public partial class Aspx_DisplayZDResult : System.Web.UI.Page
             sdrRoute.Close();
             result += arrbus[i] + "：<br />" + strRoute + "<br />";
         }
+        result = result.Replace(StationName, "<font color=red>" + StationName + "</font>");
     }
 }

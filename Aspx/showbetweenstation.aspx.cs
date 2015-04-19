@@ -33,5 +33,7 @@ public partial class Aspx_showbetweenstation : System.Web.UI.Page
         {
             result += busName[i] + ":<br />" + busRoute[i] + "<br />";
         }
+        result = result.Replace(startStation, "<font color=red>" + startStation + "</font>");
+        result = result.Replace(endStation, "<font color=red>" + endStation + "</font>");
     }
 }

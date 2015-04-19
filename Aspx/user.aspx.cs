@@ -12,9 +12,10 @@ public partial class Aspx_user : System.Web.UI.Page
     {
        
     }
+    //换乘查询
     protected void btnFind_Click(object sender, EventArgs e)
     {
-       string startStation = this.textqd.Text;
+        string startStation = this.textqd.Text;
         string endStation = this.textzd.Text;
         SqlConnection con = Database.createCon();
         con.Open();
@@ -36,6 +37,7 @@ public partial class Aspx_user : System.Web.UI.Page
         sdr.Close();
         //Response.Cookies["iframe"].Value = "hccx";
     }
+    //线路查询
     protected void btnFind_Click1(object sender, EventArgs e)
     {
         string busName = this.txtLineName.Text;
@@ -61,6 +63,7 @@ public partial class Aspx_user : System.Web.UI.Page
         con.Close();
         //Response.Cookies["iframe"].Value = "xlcx";
     }
+    //站点查询
     protected void btnFind_Click2(object sender, EventArgs e)
     {
         string ZDName = this.StationName.Text;
