@@ -12,29 +12,15 @@ public partial class Aspx_user : System.Web.UI.Page
     {
        
     }
-    //换乘查询
+    //换乘查询(重写)
     protected void btnFind_Click(object sender, EventArgs e)
     {
-        string startStation = this.textqd.Text;
-        string endStation = this.textzd.Text;
-        SqlConnection con = Database.createCon();
-        con.Open();
-        SqlCommand cmd = new SqlCommand("SELECT qmroute_address FROM Route WHERE qmroute_address LIKE N'" + startStation + "-" + endStation + "-%' OR qmroute_address LIKE N'" + startStation + "-%-" + endStation + "-%'OR qmroute_address LIKE N'" + startStation + "-%-" + endStation + "'OR qmroute_address LIKE N'%-" + startStation + "-" + endStation + "-%'OR qmroute_address LIKE N'%-" + startStation + "-%-" + endStation + "-%'OR qmroute_address LIKE N'%-" + startStation + "-%-" + endStation + "'OR qmroute_address LIKE N'%-" + startStation + "-" + endStation + "'", con);
-        SqlDataReader sdr = cmd.ExecuteReader();
-        if ((startStation == "" || startStation == null) && (endStation == "" || endStation == null))
+        if ((this.textqd.Text == "" || this.textqd.Text == null) && (this.textzd.Text == "" || this.textzd.Text == null))
         {
             Response.Write("<script>alert('请完整输入起点和终点')</script>");
         }
         else
-        {
-            if (sdr.Read())
-            {
-                Response.Write("<script>alert('查询成功！')<script>");
-                this.frmResult.Src="showbetweenstation?startstation="+startStation+"&endstation="+endStation;
-            }
-        }
-        con.Close();
-        sdr.Close();
+            this.frmResult.Src = "showbetweenstation?startstation=" + this.textqd.Text + "&endstation=" + this.textzd.Text;
         //Response.Cookies["iframe"].Value = "hccx";
     }
     //线路查询
@@ -44,9 +30,7 @@ public partial class Aspx_user : System.Web.UI.Page
         SqlConnection con = Database.createCon();
         con.Open();
         SqlCommand cmd = new SqlCommand("SELECT qmroute_address FROM Route WHERE qmroute_name=N'" + busName + "'", con);
-        SqlDataReader sdr = cmd.ExecuteReader();
-        //int count = Convert.ToInt32(cmd.ExecuteScalar());
-        
+        SqlDataReader sdr = cmd.ExecuteReader();        
         if(busName==""||busName==null)
         {
             Response.Write("<script>alert('请输入公交名称！')</script>");
@@ -55,7 +39,6 @@ public partial class Aspx_user : System.Web.UI.Page
         {
             if (sdr.Read())
             {
-                Response.Write("<script>alert('查询成功,！')</script>");
                 this.frmResult.Src = "showbus.aspx?busName=" + busName;
             }
         }
@@ -70,24 +53,20 @@ public partial class Aspx_user : System.Web.UI.Page
         SqlConnection con = Database.createCon();
         con.Open();
         SqlCommand cmd = new SqlCommand("SELECT count(*) FROM Station WHERE qmstation_name=N'" + ZDName + "'", con);
-        int count = Convert.ToInt32(cmd.ExecuteScalar());
-        con.Close();
+        SqlDataReader sdr = cmd.ExecuteReader();
         if (ZDName == "" || ZDName == null)
         {
             Response.Write("<script>alert('请输入站点名！')</script>");
         }
         else
         {
-            if (count !=null)
+            if (sdr.Read())
             {
-                Response.Write("<script>alert('查询成功,！')</script>");
                 this.frmResult.Src = "showstation.aspx?StationName=" + ZDName;
             }
-            else
-            {
-                Response.Write("<script>alert('无结果！')<script>");
-            }
         }
+        sdr.Close();
+        con.Close();
         //Response.Cookies["iframe"].Value = "zdcx";
     }
 }

@@ -35,7 +35,7 @@
     </script>
     <h1 ><%:Title %></h1>
     <div >   
-        <div id="divhc" style="display:inline;font-weight:bold" onclick="displayhc()">换乘(站站)查询|</div>
+        <div id="divhc" style="display:inline;font-weight:bold" onclick="displayhc()">换乘查询|</div>
         <div id="divxl" style="display:inline" onclick="displayxl()">线路查询|</div>
         <div id="divzd" style="display:inline" onclick="displayzd()">站点查询</div>
         <div id="hcframe" style="display:block" >
