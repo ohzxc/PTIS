@@ -62,7 +62,7 @@ public class WebService : System.Web.Services.WebService {
             int i = 0;
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
-                temp[i] = dr["qmstation_name"].ToString();
+                temp[i] = dr["qmbus_name"].ToString();
                 i++;
             }
             return temp;

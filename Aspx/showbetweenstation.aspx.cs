@@ -16,7 +16,7 @@ public partial class Aspx_showbetweenstation : System.Web.UI.Page
     private string[] endBusName = { };//所有同过终点的车辆
     private string[,] startBusAllStation = new string[5,100];//startBusName包含的所有站点
     private string[,] endBusAllStation = new string[5, 100];//endBusName包含的所有站点
-    private string[] OnceHuanCheng/*一次换乘查询函数,返回直达车辆*/(string startStation, string endStation){
+    private string[] OnceHuanCheng/*直达查询函数,返回直达车辆*/(string startStation, string endStation){
         SqlConnection con = Database.createCon();
         con.Open();
         //下面找到过起点的所有公交路线
@@ -38,7 +38,7 @@ public partial class Aspx_showbetweenstation : System.Web.UI.Page
         //求交集
         return startBusName.Where(a => endBusName.Contains(a)).ToArray();
     }
-    private ArrayList TwiceHuanCheng/*两次换乘查询函数，返回*/(string[] startBusName, string[] endBusName)
+    private void TwiceHuanCheng/*换乘一次查询函数*/(string[] startBusName, string[] endBusName)
     {
         SqlConnection con = Database.createCon();
         con.Open();
@@ -68,36 +68,24 @@ public partial class Aspx_showbetweenstation : System.Web.UI.Page
             }
             sdr.Close();
         }
-        ArrayList shareStation = new ArrayList();
-        ArrayList shareBus = new ArrayList();
-        for (int i = 0; i <= startBusAllStation.GetUpperBound(0); i++)
+        //string tmpResult = "";
+        for (int i = 0; i < startBusName.Length; i++)
         {
             for (int j = 0; j <= startBusAllStation.GetUpperBound(1); j++)
             {
-                for (int m = 0; m <= endBusAllStation.GetUpperBound(0); m++)
+                for (int m = 0; m < endBusName.Length; m++)
                 {
                     for (int n = 0; n <= endBusAllStation.GetUpperBound(1); n++)
                     {
                         if ((startBusAllStation[i, j] == endBusAllStation[m, n]) && endBusAllStation[m, n] != null)
                         {
-                            result +="在"+startStation+"搭"+ startBusName[i] + "，在" + startBusAllStation[i, j] +"下车，换"+endBusName[m]+ "到达目的地<br />";
+                            //tmpResult += startBusAllStation[i, j] + @"\";
+                            result += "在" + startStation + "搭" + startBusName[i] + "，在" + startBusAllStation[i, j] + "下车，换" + endBusName[m] + "到达目的地<br />";
                         }
                     }
                 }
             }
         }
-        /*  foreach (string i in startBusAllStation)
-          {
-              foreach (string j in endBusAllStation)
-              {
-                  if (i == j)
-                  {
-                      shareStation.Add(i);
-                      //result += startBusName[Array.IndexOf(i, startBusAllStation)];
-                  }
-              }
-          }*/
-        return shareStation;
     }
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -130,7 +118,7 @@ public partial class Aspx_showbetweenstation : System.Web.UI.Page
         con.Open();
         if (shareBusName.Length != 0)
         {
-            result += "从" + startStation + "到" + endStation + "的车次有:<br />";
+            result += "从" + startStation + "到" + endStation + "的直达车次有:<br />";
             for (int i = 0; i < shareBusName.Length; i++)
             {
                 SqlCommand cmd = new SqlCommand("SELECT qmroute_address FROM Route WHERE qmroute_name=N'" + shareBusName[i] + "'", con);
@@ -140,21 +128,12 @@ public partial class Aspx_showbetweenstation : System.Web.UI.Page
                 sdr.Close();
             }
             con.Close();
-            result = result.Replace(startStation, "<font color=red>" + startStation + "</font>");
-            result = result.Replace(endStation, "<font color=red>" + endStation + "</font>");
+            result = result.Replace("-" + startStation + "-", "-<font color=red>" + startStation + "</font>-");
+            result = result.Replace("-" + endStation + "-", "-<font color=red>" + endStation + "</font>-");
         }
         else
         {
-            var shareStation = TwiceHuanCheng(startBusName, endBusName);
-            if (shareStation.Count != 0)
-            {
-                foreach (string i in shareStation)
-                {
-                    Array.Clear(shareBusName, 0, shareBusName.Length);
-                    shareBusName = OnceHuanCheng(startStation, i);
-
-                }
-            }
+            TwiceHuanCheng(startBusName, endBusName);
             //开始二次换乘查询
             //比较过起点的路线过还是过终点的路线多，少的站点存finalStation，路线数组存finalBus
             /*SqlCommand cmd = new SqlCommand("SELECT qmstation_bus FROM Station WHERE qmstation_name=N'" + startStation + "'", con);
