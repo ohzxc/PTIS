@@ -1,5 +1,4 @@
 ﻿function displayhc() {
-
     document.getElementById("hcframe").style.display = "block";
     document.getElementById("xlframe").style.display = "none";
     document.getElementById("zdframe").style.display = "none";

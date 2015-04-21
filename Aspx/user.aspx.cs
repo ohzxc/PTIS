@@ -10,7 +10,7 @@ public partial class Aspx_user : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       
+        //this.Form.DefaultButton = this.btnFind.UniqueID;
     }
     //换乘查询(重写)
     protected void btnFind_Click(object sender, EventArgs e)
