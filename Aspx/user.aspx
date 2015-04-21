@@ -3,7 +3,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <script src="../Scripts/user.js"></script>
-    <!--交换起点与终点的值-->
+    <!--记忆选择的标签和交换起点和终点的值-->
     <script>
         $(document).ready(function () {
             var strCookie = document.cookie;
