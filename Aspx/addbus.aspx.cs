@@ -33,8 +33,15 @@ public partial class Aspx_addbus : System.Web.UI.Page
         {
             SqlConnection con = Database.createCon();
             con.Open();
+            //检查是否重名
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Bus WHERE qmbus_name=N'" + this.txtBusName.Text + "'", con);
+            if (System.Convert.ToInt32(cmd.ExecuteScalar())>0)
+            {
+                Response.Write("<script>alert('公交已存在，请点击“公交信息列表”进行管理！')</script>");
+                return;
+            }
             //插入公交和路线信息
-            SqlCommand cmd = new SqlCommand("INSERT INTO Bus(qmbus_name,qmbus_ratebz,qmbus_rate,qmbus_starttime,qmbus_endtime,qmbus_class)VALUES(N'" + this.txtBusName.Text + "',N'" + this.ddlRatebz.Text + "',N'" + this.txtRate.Text + "','" + this.txtStartTime.Text + "','" + this.txtEndTime.Text + "',N'" + this.ddlBusClass.Text + "');INSERT INTO Route(qmroute_name,qmroute_address) VALUES(N'" + txtBusName.Text + "',N'" + txtRoute.Text + "')", con);
+            cmd.CommandText= "INSERT INTO Bus(qmbus_name,qmbus_ratebz,qmbus_rate,qmbus_starttime,qmbus_endtime,qmbus_class)VALUES(N'" + this.txtBusName.Text + "',N'" + this.ddlRatebz.Text + "',N'" + this.txtRate.Text + "','" + this.txtStartTime.Text + "','" + this.txtEndTime.Text + "',N'" + this.ddlBusClass.Text + "');INSERT INTO Route(qmroute_name,qmroute_address) VALUES(N'" + txtBusName.Text + "',N'" + txtRoute.Text + "')";
             cmd.ExecuteNonQuery();
             //插入站点信息
             string[] aryStation=this.txtRoute.Text.Split('-');

@@ -24,13 +24,13 @@ public partial class Aspx_DisplayZDResult : System.Web.UI.Page
         //ArrayList alSatation = new ArrayList();
         SqlConnection con = Database.createCon();
         con.Open();
-        SqlCommand cmd = new SqlCommand("SELECT qmstation_bus FROM Station WHERE qmstation_name=N'"+StationName+"'", con);
-        if (cmd.ExecuteNonQuery() < 1) 
+        SqlCommand cmd = new SqlCommand("SELECT count(qmstation_bus) FROM Station WHERE qmstation_name=N'"+StationName+"'", con);
+        if (System.Convert.ToInt32(cmd.ExecuteScalar()) <= 0)
         {
-            result = "无结果";
-            con.Close();
+            Response.Write("<script>alert('无此站点')</script>");
             return;
         }
+        cmd.CommandText = "SELECT qmstation_bus FROM Station WHERE qmstation_name=N'" + StationName + "'";
         SqlDataReader sdr = cmd.ExecuteReader();
         while  (sdr.Read())
         {
