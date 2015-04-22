@@ -25,6 +25,12 @@ public partial class Aspx_DisplayZDResult : System.Web.UI.Page
         SqlConnection con = Database.createCon();
         con.Open();
         SqlCommand cmd = new SqlCommand("SELECT qmstation_bus FROM Station WHERE qmstation_name=N'"+StationName+"'", con);
+        if (cmd.ExecuteNonQuery() < 1) 
+        {
+            result = "无结果";
+            con.Close();
+            return;
+        }
         SqlDataReader sdr = cmd.ExecuteReader();
         while  (sdr.Read())
         {

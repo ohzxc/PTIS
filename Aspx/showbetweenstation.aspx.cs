@@ -9,7 +9,7 @@ using System.Collections;
 
 public partial class Aspx_showbetweenstation : System.Web.UI.Page
 {
-    public string result;
+    public string result = "";
     private string startStation = "";
     private string endStation = "";
     private string[] startBusName = { };//所有通过起点的车辆
@@ -85,6 +85,10 @@ public partial class Aspx_showbetweenstation : System.Web.UI.Page
                     }
                 }
             }
+        }
+        if (result.Length < 1)
+        {
+            result = "无结果";
         }
     }
     protected void Page_Load(object sender, EventArgs e)

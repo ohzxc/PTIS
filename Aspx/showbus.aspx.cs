@@ -16,6 +16,12 @@ public partial class Aspx_showBus : System.Web.UI.Page
         SqlConnection con = Database.createCon();
         con.Open();
         SqlCommand cmd = new SqlCommand("SELECT qmroute_address FROM Route WHERE qmroute_name=N'" + busName + "'",con);
+        if (cmd.ExecuteNonQuery() < 1)
+        {
+            result = "无结果";
+            con.Close();
+            return;
+        }
         SqlDataReader sdr = cmd.ExecuteReader();
         while (sdr.Read())
         {
