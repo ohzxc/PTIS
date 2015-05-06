@@ -15,7 +15,7 @@ public partial class Aspx_user : System.Web.UI.Page
     //换乘查询(重写)
     protected void btnFind_Click(object sender, EventArgs e)
     {
-        if ((this.textqd.Text == "" || this.textqd.Text == null) && (this.textzd.Text == "" || this.textzd.Text == null))
+        if (this.textqd.Text == "" || this.textzd.Text == "")
         {
             Response.Write("<script>alert('请完整输入起点和终点')</script>");
         }
