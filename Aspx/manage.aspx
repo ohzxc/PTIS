@@ -3,7 +3,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <!--<script src="../Scripts/user.js"></script>-->
-    <h1>管理员首页</h1>
+    <h1><%=Title %></h1>
     <table>
        <tr>
            <td style="text-align:left;vertical-align:top;width:100px">

@@ -11,7 +11,7 @@ public partial class Aspx_manage : System.Web.UI.Page
     {
         if ((Session["flag"] == null))
         {
-            //Response.Redirect("admin.aspx");
+            Response.Redirect("admin.aspx");
         }        
         //			 在此处放置用户代码以初始化页面
     }

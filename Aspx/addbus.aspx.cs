@@ -13,7 +13,7 @@ public partial class Aspx_addbus : System.Web.UI.Page
     {
         if (Session["flag"] == null)
         {
-           // Response.Redirect("admin.aspx");
+           Response.Redirect("admin.aspx");
         }
     }
     #endregion
@@ -21,7 +21,7 @@ public partial class Aspx_addbus : System.Web.UI.Page
     #region 自定义方法
     private bool Check()
     {
-        if (this.txtBusName.Text==""||this.txtRate.Text==""||this.ddlRatebz.Text==""||this.txtStartTime.Text==""||this.txtEndTime.Text==""||this.txtRoute.Text=="")
+        if (this.txtBusName.Text==""||this.ddlRatebz.Text==""||this.txtStartTime.Text==""||this.txtEndTime.Text==""||this.txtRoute.Text=="")
             return false;
         return true;
     }

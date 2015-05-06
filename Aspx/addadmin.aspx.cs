@@ -10,7 +10,10 @@ public partial class Aspx_addadmin : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if ((Session["flag"] == null))
+        {
+            Response.Redirect("admin.aspx");
+        }
     }
     protected void btnAdd_Click(object sender, EventArgs e)
     {

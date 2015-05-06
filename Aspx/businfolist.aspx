@@ -1,4 +1,4 @@
-﻿<%@ Page Title="公交信息列表" MasterPageFile="~/Site.master" Language="C#" AutoEventWireup="true" CodeFile="businfolist.aspx.cs" Inherits="Aspx_businfolist" %>
+﻿<%@ Page Title="线路信息列表" MasterPageFile="~/Site.master" Language="C#" AutoEventWireup="true" CodeFile="businfolist.aspx.cs" Inherits="Aspx_businfolist" %>
 <%@ Register TagPrefix="uc" TagName="admin" Src="~/Controls/adminguide.ascx" %>
 
 <asp:Content ID="BadyContent" ContentPlaceHolderID="MainContent" runat="server">
@@ -11,7 +11,7 @@
             $('tr:odd').addClass('alt');
         });
     </script>
-    <h1>公交信息列表</h1>
+    <h1><%=Title %></h1>
     <table>
        <tr>
            <td style="text-align:left;vertical-align:top;width:100px">

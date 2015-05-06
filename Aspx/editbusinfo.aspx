@@ -1,8 +1,8 @@
-﻿<%@ Page Title="编辑公交信息" MasterPageFile="~/Site.master" Language="C#" AutoEventWireup="true" CodeFile="editbusinfo.aspx.cs" Inherits="Aspx_editbusinfo" %>
+﻿<%@ Page Title="编辑线路信息" MasterPageFile="~/Site.master" Language="C#" AutoEventWireup="true" CodeFile="editbusinfo.aspx.cs" Inherits="Aspx_editbusinfo" %>
 <%@ Register TagPrefix="uc" TagName="admin" Src="~/Controls/adminguide.ascx" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h1>修改公交信息</h1>
+    <h1><%=Title %></h1>
         <table>
         <tr>
             <td style="text-align:left;vertical-align:top;width:100px">
@@ -14,8 +14,11 @@
                 <br />
                 <label>公交类型：</label>
                 <asp:DropDownList ID="ddlBusClass" runat="server">
-                    <asp:ListItem Value="普线车" Selected="True"></asp:ListItem>
-                    <asp:ListItem Value="专线车"></asp:ListItem>
+                    <asp:ListItem Value="城区普线" Selected="True"></asp:ListItem>
+                    <asp:ListItem Value="郊区普线"></asp:ListItem>
+                    <asp:ListItem Value="旅游线路"></asp:ListItem>
+                    <asp:ListItem Value="城区专线"></asp:ListItem>
+                    <asp:ListItem Value="远城区线"></asp:ListItem>
                     <asp:ListItem Value="无轨电车"></asp:ListItem>
                     <asp:ListItem Value="轨道交通"></asp:ListItem>
                     <asp:ListItem Value="轮渡"></asp:ListItem>
@@ -23,8 +26,9 @@
                 <br />
                 <label>票&nbsp &nbsp &nbsp &nbsp 制：</label>
                 <asp:DropDownList ID="ddlRatebz" runat="server">
-                    <asp:ListItem Value="请选择" Selected ="True"></asp:ListItem>
-                    <asp:ListItem Value="一票制"></asp:ListItem>
+                    <asp:ListItem Value="一票制" Selected ="True"></asp:ListItem>
+                    <asp:ListItem Value="梯形票价"></asp:ListItem>
+                    <asp:ListItem Value="按里程"></asp:ListItem>
                     <asp:ListItem Value="其它"></asp:ListItem>
                 </asp:DropDownList>
                 <br />

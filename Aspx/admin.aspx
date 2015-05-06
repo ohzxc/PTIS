@@ -4,7 +4,7 @@
     <label>用户名</label>
     <asp:TextBox ID="txtUserName" runat="server" type="text" />
     <br />
-    <label>密码</label>
+    <label>密&nbsp &nbsp 码</label>
     <asp:TextBox ID="textPswd" runat="server" TextMode="Password" />
     <br />
     <asp:Button ID="btnLogin" Text="登陆" runat="server" OnClick="btnlogin_Click" />

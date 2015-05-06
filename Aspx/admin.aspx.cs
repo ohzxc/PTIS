@@ -35,6 +35,7 @@ public partial class Aspx_admin : System.Web.UI.Page
         if (count > 0)
         {
             Session["flag"] = txtUserName.Text.Trim();
+            Session.Timeout = 20;
             Response.Redirect("manage.aspx");
         }
         else

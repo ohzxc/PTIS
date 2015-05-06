@@ -12,18 +12,21 @@ public partial class Aspx_updatebus : System.Web.UI.Page
     {
         if (Session["flag"] == null)
         {
-            // Response.Redirect("admin.aspx");
+            Response.Redirect("admin.aspx");
         }
-        SqlConnection con = Database.createCon();
-        con.Open();
-        SqlCommand cmd = new SqlCommand("SELECT qmbus_name FROM Bus ORDER BY qmbus_name ASC", con);
-        SqlDataReader bus = cmd.ExecuteReader();
-        this.ddlBusName.DataSource = bus;
-        this.ddlBusName.DataTextField = "qmbus_name";
-        this.ddlBusName.DataValueField = "qmbus_name";
-        this.ddlBusName.DataBind();
-        bus.Close();
-        con.Close();
+        else
+        {
+            SqlConnection con = Database.createCon();
+            con.Open();
+            SqlCommand cmd = new SqlCommand("SELECT qmbus_name FROM Bus ORDER BY qmbus_name ASC", con);
+            SqlDataReader bus = cmd.ExecuteReader();
+            this.ddlBusName.DataSource = bus;
+            this.ddlBusName.DataTextField = "qmbus_name";
+            this.ddlBusName.DataValueField = "qmbus_name";
+            this.ddlBusName.DataBind();
+            bus.Close();
+            con.Close();
+        }
     }
 
     private bool Check()

@@ -122,7 +122,7 @@ public partial class Aspx_showbetweenstation : System.Web.UI.Page
         con.Open();
         if (shareBusName.Length != 0)
         {
-            result += "从" + startStation + "到" + endStation + "的直达车次有:<br />";
+            result += "从" + startStation + "到" + endStation + "的直达线路有:<br />";
             for (int i = 0; i < shareBusName.Length; i++)
             {
                 SqlCommand cmd = new SqlCommand("SELECT qmroute_address FROM Route WHERE qmroute_name=N'" + shareBusName[i] + "'", con);
@@ -132,8 +132,8 @@ public partial class Aspx_showbetweenstation : System.Web.UI.Page
                 sdr.Close();
             }
             con.Close();
-            result = result.Replace("-" + startStation + "-", "-<font color=red>" + startStation + "</font>-");
-            result = result.Replace("-" + endStation + "-", "-<font color=red>" + endStation + "</font>-");
+            result = result.Replace(startStation, "<font color=red>" + startStation + "</font>");
+            result = result.Replace(endStation, "<font color=red>" + endStation + "</font>");
         }
         else
         {

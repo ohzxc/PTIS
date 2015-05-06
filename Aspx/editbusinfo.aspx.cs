@@ -30,7 +30,11 @@ public partial class Aspx_editbusinfo : System.Web.UI.Page
     }
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
+        if ((Session["flag"] == null))
+        {
+            Response.Redirect("admin.aspx");
+        } 
+        else if (!IsPostBack)
         {
             string busName = Request.QueryString["BusName"].ToString();
             htmlDataBind(busName);
@@ -39,7 +43,7 @@ public partial class Aspx_editbusinfo : System.Web.UI.Page
     }
     private bool Check()
     {
-        if (this.txtBusName.Text == "" || this.txtRate.Text == "" || this.ddlRatebz.Text == "" || this.txtStartTime.Text == "" || this.txtEndTime.Text == "" )
+        if (this.txtBusName.Text == "" || this.ddlRatebz.Text == "" || this.txtStartTime.Text == "" || this.txtEndTime.Text == "" )
             return false;
         return true;
     }

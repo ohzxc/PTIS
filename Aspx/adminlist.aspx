@@ -10,7 +10,7 @@
             $('tr:odd').addClass('alt');
         });
     </script>
-    <h1>管理员列表</h1>
+    <h1><%=Title %></h1>
     <table>
        <tr>
            <td style="text-align:left;vertical-align:top;width:100px">

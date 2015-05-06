@@ -1,6 +1,6 @@
-﻿<%@ Page Title="修改公交信息" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="updatebus.aspx.cs" Inherits="Aspx_updatebus" %>
+﻿<%@ Page Title="修改线路信息" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="updatebus.aspx.cs" Inherits="Aspx_updatebus" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h1>修改公交信息</h1>
+    <h1><%=Title %></h1>
     <div>
         <label>选择公交：</label>
         <asp:DropDownList ID="ddlBusName" runat="server" Width="150" ></asp:DropDownList>

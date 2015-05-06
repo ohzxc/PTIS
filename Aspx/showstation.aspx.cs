@@ -39,7 +39,7 @@ public partial class Aspx_DisplayZDResult : System.Web.UI.Page
         }
         string[] arrbus = buslist.Split('-');
         sdr.Close();
-        result += "经过" + StationName + "的车次有：<br />";
+        result += "经过" + StationName + "的线路有：<br />";
         for (int i = 0; i < arrbus.Length; i++)
         {
             strRoute="";
@@ -52,6 +52,6 @@ public partial class Aspx_DisplayZDResult : System.Web.UI.Page
             sdrRoute.Close();
             result += arrbus[i] + "：<br />" + strRoute + "<br />";
         }
-        result = result.Replace("-" + StationName + "-", "-<font color=red>" + StationName + "</font>-");
+        result = result.Replace(StationName, "<font color=red>" + StationName + "</font>");
     }
 }

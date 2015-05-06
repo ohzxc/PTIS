@@ -24,7 +24,11 @@ public partial class Aspx_editbusroute : System.Web.UI.Page
     }
     protected void Page_Load(object sender, EventArgs e)
     {
-        if(!IsPostBack)
+        if ((Session["flag"] == null))
+        {
+            Response.Redirect("admin.aspx");
+        } 
+        else if (!IsPostBack)
         {
             string busName = Request.QueryString["BusName"].ToString();
             htmlDataBind(busName);

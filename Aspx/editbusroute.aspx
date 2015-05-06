@@ -1,8 +1,8 @@
-﻿<%@ Page Title="编辑公交线路" MasterPageFile="~/Site.master" Language="C#" AutoEventWireup="true" CodeFile="editbusroute.aspx.cs" Inherits="Aspx_editbusroute" %>
+﻿<%@ Page Title="编辑线路" MasterPageFile="~/Site.master" Language="C#" AutoEventWireup="true" CodeFile="editbusroute.aspx.cs" Inherits="Aspx_editbusroute" %>
 <%@ Register TagPrefix="uc" TagName="admin" Src="~/Controls/adminguide.ascx" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h1>修改公交信息</h1>
+    <h1><%=Title %></h1>
         <table>
         <tr>
             <td style="text-align:left;vertical-align:top;width:100px">

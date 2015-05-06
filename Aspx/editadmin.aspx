@@ -2,7 +2,7 @@
 <%@ Register TagPrefix="uc" TagName="admin" Src="~/Controls/adminguide.ascx" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h1>修改管理员信息</h1>
+    <h1><%=Title %></h1>
         <table>
         <tr>
             <td style="text-align:left;vertical-align:top;width:100px">

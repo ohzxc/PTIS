@@ -23,7 +23,11 @@ public partial class Aspx_stationlist : System.Web.UI.Page
     }
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
+        if ((Session["flag"] == null))
+        {
+            Response.Redirect("admin.aspx");
+        } 
+        else if (!IsPostBack)
         {
             this.dgDataBind();
         }

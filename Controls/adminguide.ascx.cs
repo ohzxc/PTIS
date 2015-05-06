@@ -11,4 +11,9 @@ public partial class Controls_adminguide : System.Web.UI.UserControl
     {
 
     }
+    protected void btnSignout_Click(object sender, EventArgs e)
+    {
+        Session["flag"] = null;
+        Response.Redirect("~/Default.aspx");
+    }
 }
