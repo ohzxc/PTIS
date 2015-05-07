@@ -6,7 +6,7 @@
         <p>毕业设计作品
             <br />开源地址:
             <br />
-            <a href="https://github.com/ohzxc/PTIS">https://github.com/ohzxc/PTIS</a>
+            <a target="_blank" href="https://github.com/ohzxc/PTIS">https://github.com/ohzxc/PTIS</a>
         </p>
     </div>
 </asp:Content>
