@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="showbusdetail.aspx.cs" Inherits="Aspx_showbusdetail" %>
+﻿<%@ Page Title="公交详情" Language="C#" AutoEventWireup="true" CodeFile="showbusdetail.aspx.cs" Inherits="Aspx_showbusdetail" %>
 
 <!DOCTYPE html>
 

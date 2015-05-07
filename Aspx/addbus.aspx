@@ -1,14 +1,14 @@
-﻿<%@ Page Title="添加公交" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="addbus.aspx.cs" Inherits="Aspx_addbus" %>
+﻿<%@ Page Title="添加线路" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="addbus.aspx.cs" Inherits="Aspx_addbus" %>
 <%@ Register TagPrefix="uc" TagName="admin" Src="~/Controls/adminguide.ascx" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h1><%=Title %></h1>
-        <table>
+    <table>
         <tr>
             <td style="text-align:left;vertical-align:top;width:100px">
                 <uc:admin runat="server" />
             </td>
-            <td>
+            <td style="vertical-align:top">
                 <label>公交名称：</label>        
                 <asp:TextBox ID="txtBusName" runat="server" placeholder="59路" />
                 <br />
@@ -40,10 +40,9 @@
                 <asp:TextBox ID="txtEndTime" runat="server" placeholder="21:00"/>
                 <br />
                 <label>站&nbsp &nbsp &nbsp &nbsp 点：</label>
-                <asp:TextBox ID="txtRoute" runat="server" placeholder="站点一-站点二-站点三" Height="50px" Width="256px" />
+                <asp:TextBox ID="txtRoute" runat="server" placeholder="站点一-站点二-站点三" Height="50px" Width="256px" TextMode="MultiLine" />
                 <br />
             <asp:Button runat="server" ID="btnAdd" Text="确定添加" OnClick="btnAdd_Click" />
-            <asp:Button runat="server" ID="btnReturn" Text="返回"  OnClick="btnReturn_Click" />
             </td>
         </tr>
     </table>

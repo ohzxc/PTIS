@@ -15,7 +15,7 @@ public partial class Aspx_editbusroute : System.Web.UI.Page
         SqlDataReader sdr = cmd.ExecuteReader();
         if (sdr.Read())
         {
-            Response.Write("<script>alert('读取成功!')</script>");
+            //Response.Write("<script>alert('读取成功!')</script>");
             this.txtBusName.Text = sdr["qmroute_name"].ToString();
             this.txtRoute.Text = sdr["qmroute_address"].ToString();
         }

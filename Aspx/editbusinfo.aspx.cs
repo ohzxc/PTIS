@@ -15,7 +15,7 @@ public partial class Aspx_editbusinfo : System.Web.UI.Page
         SqlDataReader sdr = cmd.ExecuteReader();
         if (sdr.Read())
         {
-            Response.Write("<script>alert('读取成功！')</script>");
+            //Response.Write("<script>alert('读取成功！')</script>");
             this.txtBusName.Text = sdr["qmbus_name"].ToString();
             //类型
             this.ddlBusClass.SelectedIndex = ddlBusClass.Items.IndexOf(ddlBusClass.Items.FindByValue(sdr["qmbus_class"].ToString()));

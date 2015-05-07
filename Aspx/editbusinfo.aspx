@@ -8,7 +8,7 @@
             <td style="text-align:left;vertical-align:top;width:100px">
                 <uc:admin runat="server" />
             </td>
-            <td>
+            <td style="vertical-align:top">
                 <label>公交名称：</label>       
                 <asp:TextBox ID="txtBusName" runat="server" placeholder="59路" />
                 <br />

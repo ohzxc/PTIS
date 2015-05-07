@@ -16,7 +16,7 @@
            <td style="text-align:left;vertical-align:top;width:100px">
                <uc:admin runat="server" />
            </td> 
-           <td>
+           <td style="vertical-align:top">
                <asp:DataGrid ID="dgAdmin" PageSize="5" OnEditCommand="dgAdmin_EditCommand" OnPageIndexChanged="dgAdmin_PageIndexChanged" AutoGenerateColumns="False" OnItemCommand="dgAdmin_ItemCommand" AllowPaging="True" AllowSorting="True" HorizontalAlign="Left" CellPadding="2" runat="server">
                    <Columns>
                        <asp:BoundColumn DataField="qmadmin_id" HeaderText="编号"></asp:BoundColumn>
