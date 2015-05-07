@@ -3,7 +3,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h1><%=Title %></h1>
-        <table>
+    <table>
         <tr>
             <td style="text-align:left;vertical-align:top;width:100px">
                 <uc:admin runat="server" />

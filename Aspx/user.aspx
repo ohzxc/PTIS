@@ -33,10 +33,11 @@
             document.getElementById("<%=textzd.ClientID%>").value = temp;
         }
     </script>
-    <h1 ><%:Title %></h1>
+    <div class="jumbotron">
+        <h1 ><%:Title %></h1>
     <div >   
-        <div id="divhc" style="display:inline;font-weight:bold" onclick="displayhc()">换乘查询|</div>
-        <div id="divxl" style="display:inline" onclick="displayxl()">线路查询|</div>
+        <div id="divhc" style="display:inline;font-weight:bold" onclick="displayhc()">换乘查询</div>
+        <div id="divxl" style="display:inline" onclick="displayxl()">线路查询</div>
         <div id="divzd" style="display:inline" onclick="displayzd()">站点查询</div>
         <div id="hcframe" style="display:block" >
             <asp:TextBox ID="textqd" runat="server" placeholder="请输入起点"/>
@@ -44,7 +45,7 @@
             <input type="button" value="交换" onclick="exchange()" />
             <asp:TextBox ID="textzd" runat="server" placeholder="请输入终点"/>
             <cc1:AutoCompleteExtender ID="AutoCompleteExtender3" runat="server" TargetControlID="textzd" ServicePath="~/WebService.asmx" ServiceMethod="GetTextString" CompletionSetCount="10" MinimumPrefixLength="1"></cc1:AutoCompleteExtender>
-            <asp:button ID="btnFind" runat="server" Text="换乘查询" OnClick="btnFind_Click" />
+            <asp:button ID="btnFind" runat="server" Text="换乘查询"  OnClick="btnFind_Click" />
         </div>
         <div id="xlframe" style="display:none"" >
             <asp:TextBox ID="txtLineName" placeholder="请输入公交名称" runat="server"/>
@@ -57,5 +58,6 @@
             <asp:button ID="Button2" runat="server" Text="站点查询" OnClick="btnFind_Click2" />
         </div>
         <iframe id="frmResult" runat="server" style="height: 300px; width: 500px; border: none" ></iframe>
+    </div>
     </div>
 </asp:Content>

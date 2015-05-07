@@ -9,7 +9,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+    <div style="font-family:'Microsoft YaHei'">
         <%=result %>
     </div>
     </form>

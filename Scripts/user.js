@@ -16,7 +16,7 @@ function displayxl() {
     document.getElementById("divzd").style.fontWeight = "normal";
     document.cookie = "iframe=xlcx";
 }
-function displayzd() {
+function displayzd(x) {
     document.getElementById("hcframe").style.display = "none";
     document.getElementById("xlframe").style.display = "none";
     document.getElementById("zdframe").style.display = "block";
@@ -24,4 +24,5 @@ function displayzd() {
     document.getElementById("divxl").style.fontWeight = "normal";
     document.getElementById("divzd").style.fontWeight = "bold";
     document.cookie = "iframe=zdcx";
+
 }
