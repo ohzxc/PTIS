@@ -68,20 +68,29 @@ public partial class Aspx_showbetweenstation : System.Web.UI.Page
             }
             sdr.Close();
         }
-        //string tmpResult = "";
+        string tmpResult = "";
         for (int i = 0; i < startBusName.Length; i++)
         {
-            for (int j = 0; j <= startBusAllStation.GetUpperBound(1); j++)
+            for (int m = 0; m < endBusName.Length; m++ )
             {
-                for (int m = 0; m < endBusName.Length; m++)
+                for (int j = 0; j <= startBusAllStation.GetUpperBound(1); j++)
                 {
                     for (int n = 0; n <= endBusAllStation.GetUpperBound(1); n++)
                     {
                         if ((startBusAllStation[i, j] == endBusAllStation[m, n]) && endBusAllStation[m, n] != null)
                         {
-                            //tmpResult += startBusAllStation[i, j] + @"\";
-                            result += "在" + startStation + "搭" + startBusName[i] + "，在" + startBusAllStation[i, j] + "下车，换" + endBusName[m] + "到达目的地<br />";
+                            tmpResult += startBusAllStation[i, j] + @"\";
+                            //result += "在" + startStation + "搭" + startBusName[i] + "，在" + startBusAllStation[i, j] + "下车，换" + endBusName[m] + "到达目的地<br />";
                         }
+                    }
+                    if (j == startBusAllStation.GetUpperBound(1))
+                    {
+                        if (tmpResult.Length != 0)
+                        {
+                            tmpResult = tmpResult.Substring(0, tmpResult.Length - 1);
+                            result += "<strong>" + startBusName[i] + "-" + endBusName[m] + "</strong>：<br />" + "在<font color=red>" + startStation + "</font>搭<font color=red>" + startBusName[i] + "</font>，<br />在<font color=red>" + tmpResult + "</font>下车，<br />换<font color=red>" + endBusName[m] + "</font>到达目的地<font color=red>" + endStation + "</font>。<br /><br />";
+                        }
+                        tmpResult = "";
                     }
                 }
             }
@@ -95,6 +104,11 @@ public partial class Aspx_showbetweenstation : System.Web.UI.Page
     {
         startStation = Request.QueryString["startstation"].ToString();
         endStation = Request.QueryString["endstation"].ToString();
+        if (startStation == endStation)
+        {
+            result += "同一站点还搭车啊？";
+            return;
+        }
         /*string[] startBusName={};
         string[] endBusName={};
         SqlConnection con = Database.createCon();
@@ -128,7 +142,7 @@ public partial class Aspx_showbetweenstation : System.Web.UI.Page
                 SqlCommand cmd = new SqlCommand("SELECT qmroute_address FROM Route WHERE qmroute_name=N'" + shareBusName[i] + "'", con);
                 SqlDataReader sdr = cmd.ExecuteReader();
                 while (sdr.Read())
-                    result += shareBusName[i] + ":<br />" + sdr["qmroute_address"].ToString() + "<br />";
+                    result += "<strong>" + shareBusName[i] + "</strong>:<br />" + sdr["qmroute_address"].ToString() + "<br />";
                 sdr.Close();
             }
             con.Close();

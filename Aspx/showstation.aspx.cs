@@ -27,7 +27,8 @@ public partial class Aspx_DisplayZDResult : System.Web.UI.Page
         SqlCommand cmd = new SqlCommand("SELECT count(qmstation_bus) FROM Station WHERE qmstation_name=N'"+StationName+"'", con);
         if (System.Convert.ToInt32(cmd.ExecuteScalar()) <= 0)
         {
-            Response.Write("<script>alert('无此站点')</script>");
+            result += "无此站点。";
+            //Response.Write("<script>alert('无此站点')</script>");
             return;
         }
         cmd.CommandText = "SELECT qmstation_bus FROM Station WHERE qmstation_name=N'" + StationName + "'";
@@ -50,7 +51,7 @@ public partial class Aspx_DisplayZDResult : System.Web.UI.Page
                 strRoute=Convert.ToString(sdrRoute.GetValue(0));
             }
             sdrRoute.Close();
-            result += arrbus[i] + "：<br />" + strRoute + "<br />";
+            result += "<strong>" + arrbus[i] + "</strong>：<br />" + strRoute + "<br />";
         }
         result = result.Replace(StationName, "<font color=red>" + StationName + "</font>");
     }

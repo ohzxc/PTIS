@@ -18,7 +18,8 @@ public partial class Aspx_showBus : System.Web.UI.Page
         SqlCommand cmd = new SqlCommand("SELECT count(qmroute_address) FROM Route WHERE qmroute_name=N'" + busName + "'",con);
         if (System.Convert.ToInt32(cmd.ExecuteScalar()) <= 0)
         {
-            Response.Write("<script>alert('无此车次！')</script>");
+            result += "无此线路。";
+            //Response.Write("<script>alert('无此车次！')</script>");
             return;
         }
         cmd.CommandText = "SELECT qmroute_address FROM Route WHERE qmroute_name=N'" + busName + "'";
@@ -28,6 +29,6 @@ public partial class Aspx_showBus : System.Web.UI.Page
             busAddress = sdr.GetString(0);
         }
         sdr.Close();
-        result += busName + "的路线为：<br />"+busAddress+"。";
+        result += "<strong>" + busName + "</strong>：<br />" + busAddress + "。";
     }
 }
