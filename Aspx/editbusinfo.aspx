@@ -9,8 +9,8 @@
                 <uc:admin runat="server" />
             </td>
             <td style="vertical-align:top">
-                <label>公交名称：</label>       
-                <asp:TextBox ID="txtBusName" runat="server" placeholder="59路" />
+                <label>公交名称：</label>  
+                <asp:TextBox ID="txtBusName" runat="server" placeholder="59路" ReadOnly="True" />
                 <br />
                 <label>公交类型：</label>
                 <asp:DropDownList ID="ddlBusClass" runat="server">

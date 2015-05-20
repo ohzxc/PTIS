@@ -46,6 +46,7 @@ public partial class Aspx_adminlist : System.Web.UI.Page
             SqlCommand cmd = new SqlCommand("DELETE FROM Admin WHERE qmadmin_user=N'"+e.Item.Cells[1].Text+"'", con);
             cmd.ExecuteNonQuery();
             this.dgDataBind();
+            Response.Write("<script>alert('删除完成！')</script>");
         }
     }
     protected void dgAdmin_PageIndexChanged(object source, DataGridPageChangedEventArgs e)

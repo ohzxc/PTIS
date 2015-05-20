@@ -57,6 +57,7 @@ public partial class Aspx_editbusinfo : System.Web.UI.Page
             SqlCommand cmd = new SqlCommand("UPDATE Bus SET qmbus_name = N'" + this.txtBusName.Text + "',qmbus_rate=N'"+this.txtRate.Text+"',qmbus_ratebz=N'"+this.ddlRatebz.Text+"',qmbus_starttime=N'"+this.txtStartTime.Text+"',qmbus_endtime=N'"+this.txtEndTime.Text+"',qmbus_class=N'"+this.ddlBusClass.Text+"' WHERE qmbus_name = N'" + Request.QueryString["BusName"].ToString() + "'", con);
             cmd.ExecuteNonQuery();
             con.Close();
+            Response.Write("<script>alert('修改成功！')</script>");
         }
     }
 }

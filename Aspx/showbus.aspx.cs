@@ -29,6 +29,6 @@ public partial class Aspx_showBus : System.Web.UI.Page
             busAddress = sdr.GetString(0);
         }
         sdr.Close();
-        result += "<strong>" + busName + "</strong>：<br />" + busAddress + "。";
+        result += "<a href=showbusdetail.aspx?busname="+busName+" target=blank ><strong>" + busName + "</strong></a>：<br />" + busAddress + "。";
     }
 }

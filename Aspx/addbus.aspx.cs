@@ -71,8 +71,4 @@ public partial class Aspx_addbus : System.Web.UI.Page
             Response.Write("<script>alert('请检查信息完整！')</script>");
         }
     }
-    protected void btnReturn_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("manage.aspx");
-    }
 }

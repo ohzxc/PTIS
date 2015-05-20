@@ -9,7 +9,7 @@ using System.Collections;
 
 public partial class Aspx_showbetweenstation : System.Web.UI.Page
 {
-    public string result = "";
+    public string result = "";//要显示的查询结果
     private string startStation = "";
     private string endStation = "";
     private string[] startBusName = { };//所有通过起点的车辆
@@ -88,7 +88,7 @@ public partial class Aspx_showbetweenstation : System.Web.UI.Page
                         if (tmpResult.Length != 0)
                         {
                             tmpResult = tmpResult.Substring(0, tmpResult.Length - 1);
-                            result += "<strong>" + startBusName[i] + "-" + endBusName[m] + "</strong>：<br />" + "在<font color=red>" + startStation + "</font>搭<font color=red>" + startBusName[i] + "</font>，<br />在<font color=red>" + tmpResult + "</font>下车，<br />换<font color=red>" + endBusName[m] + "</font>到达目的地<font color=red>" + endStation + "</font>。<br /><br />";
+                            result += "<a href=showbusdetail.aspx?busname=" + startBusName[i] + " target=blank><strong>" + startBusName[i] + "</strong></a>-<a href=showbusdetail.aspx?busname=" + endBusName[m] + " target=blank><strong>" + endBusName[m] + "</strong></a>：<br />" + "在" + startStation + "搭<font color=red>" + startBusName[i] + "</font>，<br />在<font color=red>" + tmpResult + "</font>下车，<br />换<font color=red>" + endBusName[m] + "</font>到达目的地" + endStation + "。<br /><br />";
                         }
                         tmpResult = "";
                     }
@@ -142,7 +142,7 @@ public partial class Aspx_showbetweenstation : System.Web.UI.Page
                 SqlCommand cmd = new SqlCommand("SELECT qmroute_address FROM Route WHERE qmroute_name=N'" + shareBusName[i] + "'", con);
                 SqlDataReader sdr = cmd.ExecuteReader();
                 while (sdr.Read())
-                    result += "<strong>" + shareBusName[i] + "</strong>:<br />" + sdr["qmroute_address"].ToString() + "<br />";
+                    result += @"<a href=showbusdetail.aspx?busname=" + shareBusName[i] + @" target=blank><strong>" + shareBusName[i] + "</strong></a>:<br />" + sdr["qmroute_address"].ToString() + "<br />";
                 sdr.Close();
             }
             con.Close();

@@ -48,6 +48,7 @@ public partial class Aspx_businfolist : System.Web.UI.Page
             cmd.ExecuteNonQuery();
             //Response.Write("<script>alert('删除完成！')</script>");
             this.dgDataBind();
+            Response.Write("<script>alert('删除完成！')</script>");
         }
     }
     //分页事件

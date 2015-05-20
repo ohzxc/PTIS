@@ -34,7 +34,7 @@ public partial class Aspx_user : System.Web.UI.Page
         }
         else
         {
-            this.frmResult.Src = "showbus.aspx?busName=" + busName;
+            this.frmResult.Src = "showbus?busName=" + busName;
         }
         //Response.Cookies["iframe"].Value = "xlcx";
     }
@@ -48,7 +48,7 @@ public partial class Aspx_user : System.Web.UI.Page
         }
         else
         {
-            this.frmResult.Src = "showstation.aspx?StationName=" + ZDName;
+            this.frmResult.Src = "showstation?StationName=" + ZDName;
         }
         //Response.Cookies["iframe"].Value = "zdcx";
     }
