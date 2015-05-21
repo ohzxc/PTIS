@@ -57,7 +57,7 @@
             <cc1:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="StationName" ServicePath="~/WebService.asmx" ServiceMethod="GetTextString" CompletionSetCount="10" MinimumPrefixLength="1"></cc1:AutoCompleteExtender>
             <asp:button ID="Button2" runat="server" Text="站点查询" OnClick="btnFind_Click2" />
         </div>
-        <iframe id="frmResult" runat="server" style="height: 600px; width: 500px; border: none" ></iframe>
+        <iframe class="frame" id="frmResult" runat="server" style=" border: none" ></iframe>
     </div>
     </div>
 </asp:Content>

@@ -8,13 +8,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - 武汉公共交通信息查询系统</title>
-
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
+    <style type="text/css">
+        .frame{
+        height:360px;
+        width:500px;
+    }
+    </style>
 </head>
 <body>
     <form runat="server" id="formMaster">
