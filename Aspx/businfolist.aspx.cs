@@ -44,9 +44,8 @@ public partial class Aspx_businfolist : System.Web.UI.Page
             }
             SqlConnection con = Database.createCon();
             con.Open();
-            SqlCommand cmd = new SqlCommand("DELETE  FROM Bus WHERE qmbus_name=N'" + ((HyperLink)e.Item.Cells[1].Controls[0]).Text + "';DELETE FROM Route WHERE qmroute_name=N'" + ((HyperLink)e.Item.Cells[1].Controls[0]).Text + "'", con);
+            SqlCommand cmd = new SqlCommand("DELETE  FROM Bus WHERE qmbus_name=N'" + ((HyperLink)e.Item.Cells[1].Controls[0]).Text + "';DELETE FROM Route WHERE qmroute_name=N'" + ((HyperLink)e.Item.Cells[1].Controls[0]).Text + "';UPDATE Station SET qmstation_bus = REPLACE(qmstation_bus,N'-" + ((HyperLink)e.Item.Cells[1].Controls[0]).Text + "-','') WHERE qmstation_bus like N'%-" + ((HyperLink)e.Item.Cells[1].Controls[0]).Text + "-%';UPDATE Station SET qmstation_bus = REPLACE(qmstation_bus,N'" + ((HyperLink)e.Item.Cells[1].Controls[0]).Text + "-','') WHERE qmstation_bus like N'%" + ((HyperLink)e.Item.Cells[1].Controls[0]).Text + "-%';UPDATE Station SET qmstation_bus = REPLACE(qmstation_bus,N'-" + ((HyperLink)e.Item.Cells[1].Controls[0]).Text + "','') WHERE qmstation_bus like N'%-" + ((HyperLink)e.Item.Cells[1].Controls[0]).Text + "%';DELETE  FROM Station WHERE qmstation_bus=N'" + ((HyperLink)e.Item.Cells[1].Controls[0]).Text + "'", con);
             cmd.ExecuteNonQuery();
-            //Response.Write("<script>alert('删除完成！')</script>");
             this.dgDataBind();
             Response.Write("<script>alert('删除完成！')</script>");
         }

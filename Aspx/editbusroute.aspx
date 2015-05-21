@@ -10,7 +10,7 @@
             </td>
             <td style="vertical-align:top">
                 <label>公交名称：</label>        
-                <asp:TextBox ID="txtBusName" runat="server" placeholder="59路" />
+                <asp:TextBox ID="txtBusName" runat="server" placeholder="59路" ReadOnly="True" />
                 <br />
                 <label>站&nbsp &nbsp &nbsp &nbsp 点：</label>
                 <asp:TextBox ID="txtRoute" runat="server" placeholder="站点一-站点二-站点三" Height="140px" Width="256px" TextMode="MultiLine" />

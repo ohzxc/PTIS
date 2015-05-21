@@ -48,7 +48,7 @@ public partial class Aspx_addbus : System.Web.UI.Page
             string busName = "";
             for (int i = 0; i < aryStation.Length; i++)
             {
-                cmd.CommandText = "SELECT qmstation_bus FROM Station WHERE qmstation_name=N'"+aryStation[i]+"'";//"INSERT INTO Station(qmstation_bus,qmstation_name)VALUES(N'" + txtBusName.Text + "',N'" + aryStation[i] + "')";
+                cmd.CommandText = "SELECT qmstation_bus FROM Station WHERE qmstation_name=N'"+aryStation[i]+"'";
                 SqlDataReader sdr = cmd.ExecuteReader();
                 if (sdr.Read())
                 {
