@@ -7,4 +7,4 @@
         <div class="access" ><a href="Aspx/user">查询入口</a> <a href="Aspx/admin">管理入口</a></div>
     </div>
     
-</asp:Content>
+</asp:Content> 

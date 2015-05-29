@@ -18,7 +18,7 @@ public partial class Aspx_showbusdetail : System.Web.UI.Page
         SqlDataReader sdr = cmd.ExecuteReader();
         while (sdr.Read())
         {
-            result = sdr["qmbus_name"].ToString() + "：" + sdr["qmbus_rate"].ToString() + "；" + sdr["qmbus_ratebz"].ToString() + "；" + sdr["qmbus_starttime"].ToString() + "；" + sdr["qmbus_endtime"].ToString() + "；" + sdr["qmbus_class"].ToString();
+            result ="<h1>"+ sdr["qmbus_name"].ToString() + "</h1><p>" + sdr["qmbus_rate"].ToString() + "；" + sdr["qmbus_ratebz"].ToString() + "；" + sdr["qmbus_starttime"].ToString() + "；" + sdr["qmbus_endtime"].ToString() + "；" + sdr["qmbus_class"].ToString();
         }
         cmd.CommandText = "SELECT qmroute_address FROM Route WHERE qmroute_name=N'" + busName + "'";
         sdr.Close();
@@ -28,5 +28,6 @@ public partial class Aspx_showbusdetail : System.Web.UI.Page
             result += "<br />线路：<br />" + sdr["qmroute_address"].ToString();
         }
         sdr.Close();
+        result += "</p>";
     }
 }
